@@ -188,10 +188,9 @@ p {
 }
 
 .nav__logo-img {
-    height: 52px;
+    height: 68px;
     width: auto;
     display: block;
-    /* Logo ist weiß auf schwarz — wirkt als Stempel auf hellem Hintergrund */
 }
 
 .nav__links {
@@ -243,7 +242,7 @@ p {
     min-height: 100vh;
     display: flex;
     align-items: flex-end;
-    padding: 0 var(--pad-x) clamp(60px, 8vw, 100px);
+    padding: clamp(130px, 18vw, 200px) var(--pad-x) clamp(60px, 8vw, 100px);
     overflow: hidden;
     background: var(--c-bg);
 }
@@ -302,11 +301,14 @@ p {
     margin-bottom: 28px;
 }
 
-.hero__logo {
-    width: clamp(260px, 48vw, 680px);
-    height: auto;
-    display: block;
-    margin-bottom: 28px;
+.hero__display {
+    font-family: var(--font-display);
+    font-size: clamp(4.5rem, 13vw, 12rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.04em;
+    line-height: 0.92;
+    margin-bottom: 24px;
 }
 
 .hero__title {
@@ -672,9 +674,10 @@ p {
 
 .footer__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(40px, 5vw, 80px);
+    grid-template-columns: repeat(3, 1fr) 1.4fr;
+    gap: clamp(32px, 4vw, 60px);
     margin-bottom: 60px;
+    align-items: start;
 }
 
 .footer__col h4 {
@@ -714,6 +717,27 @@ p {
 .footer__col a:hover {
     color: var(--c-text);
     border-color: var(--c-border);
+}
+
+.footer__col--logo {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.footer__logo-link {
+    display: block;
+    transition: opacity 0.2s ease;
+}
+
+.footer__logo-link:hover {
+    opacity: 0.75;
+}
+
+.footer__logo-img {
+    width: clamp(140px, 18vw, 220px);
+    height: auto;
+    display: block;
 }
 
 .footer__bottom {
@@ -812,6 +836,10 @@ p {
         grid-template-columns: 1fr 1fr;
         gap: 40px;
     }
+
+    .footer__col--logo {
+        justify-content: flex-start;
+    }
 }
 
 @media (max-width: 600px) {
@@ -841,5 +869,14 @@ p {
 
     .hero__title {
         font-size: clamp(2.4rem, 12vw, 4rem);
+    }
+
+    .hero__display {
+        font-size: clamp(3rem, 14vw, 5rem);
+    }
+
+    .hero {
+        padding-top: 112px;
+        align-items: center;
     }
 }
