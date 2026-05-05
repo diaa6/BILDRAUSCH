@@ -1,6 +1,6 @@
 /* ============================================================
    BILDRAUSCH — STYLESHEET
-   Cinematic dark theme · System fonts only · No Google Fonts
+   Helles Theme · Schwarz auf Weiß · System fonts only
    ============================================================ */
 
 /* === RESET === */
@@ -15,12 +15,12 @@
     --font-sans:    'Helvetica Neue', Helvetica, Arial, sans-serif;
     --font-display: 'Arial Black', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
-    --c-bg:        #0a0a0a;
-    --c-bg-alt:    #101010;
-    --c-bg-card:   #141414;
-    --c-text:      #f0ece4;
-    --c-muted:     #666;
-    --c-border:    #222;
+    --c-bg:        #ffffff;
+    --c-bg-alt:    #f7f7f7;
+    --c-bg-card:   #e8e8e8;
+    --c-text:      #111111;
+    --c-muted:     #888;
+    --c-border:    #cdc8bf;
     --c-accent:    #c8001a;
 
     --max-w:       1200px;
@@ -160,15 +160,15 @@ p {
     left: 0;
     right: 0;
     z-index: 100;
-    padding: 22px var(--pad-x);
-    transition: background 0.4s ease, backdrop-filter 0.4s ease;
+    padding: 18px var(--pad-x);
+    transition: background 0.4s ease, box-shadow 0.4s ease;
 }
 
 .nav.scrolled {
-    background: rgba(10, 10, 10, 0.94);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--c-border);
+    box-shadow: 0 1px 0 var(--c-border);
 }
 
 .nav__inner {
@@ -180,13 +180,18 @@ p {
     position: relative;
 }
 
+/* Logo als Bild */
 .nav__logo {
-    font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    z-index: 1;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.nav__logo-img {
+    height: 52px;
+    width: auto;
+    display: block;
+    /* Logo ist weiß auf schwarz — wirkt als Stempel auf hellem Hintergrund */
 }
 
 .nav__links {
@@ -248,8 +253,8 @@ p {
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(ellipse at 80% 40%, rgba(30, 0, 0, 0.5) 0%, transparent 65%),
-        radial-gradient(ellipse at 10% 80%, rgba(0, 0, 0, 0.6) 0%, transparent 60%);
+        radial-gradient(ellipse at 75% 35%, rgba(200, 0, 26, 0.04) 0%, transparent 55%),
+        radial-gradient(ellipse at 5% 90%, rgba(0, 0, 0, 0.04) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -262,7 +267,7 @@ p {
     font-weight: 900;
     text-transform: uppercase;
     color: transparent;
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.05);
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.06);
     letter-spacing: -0.04em;
     pointer-events: none;
     user-select: none;
@@ -297,17 +302,35 @@ p {
     margin-bottom: 28px;
 }
 
+.hero__logo {
+    width: clamp(260px, 48vw, 680px);
+    height: auto;
+    display: block;
+    margin-bottom: 28px;
+}
+
 .hero__title {
     font-size: clamp(2.8rem, 8.5vw, 7.5rem);
     text-transform: uppercase;
     letter-spacing: -0.03em;
     line-height: 1;
-    margin-bottom: 36px;
+    margin-bottom: -10px;
+}
+
+.hero__title-location {
+    display: block;
+    font-size: 0.42em;
+    font-family: var(--font-sans);
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--c-muted);
+    margin-top: 0.6em;
 }
 
 .hero__desc {
     font-size: clamp(0.95rem, 1.4vw, 1.1rem);
-    color: rgba(240, 236, 228, 0.65);
+    color: rgba(17, 17, 17, 0.55);
     max-width: 48ch;
     margin-bottom: 52px;
     line-height: 1.7;
@@ -329,7 +352,7 @@ p {
 
 .about__main p + p {
     margin-top: 20px;
-    color: rgba(240, 236, 228, 0.75);
+    color: rgba(17, 17, 17, 0.65);
 }
 
 .about__focus h3 {
@@ -353,7 +376,7 @@ p {
     display: flex;
     align-items: center;
     gap: 14px;
-    color: rgba(240, 236, 228, 0.9);
+    color: rgba(17, 17, 17, 0.85);
 }
 
 .focus-list li::before {
@@ -364,7 +387,7 @@ p {
 }
 
 .about__focus > p {
-    color: rgba(240, 236, 228, 0.6);
+    color: rgba(17, 17, 17, 0.55);
     font-size: 0.9rem;
 }
 
@@ -402,7 +425,7 @@ p {
 }
 
 .festival-card:hover {
-    background: #181818;
+    background: #ddd8cf;
 }
 
 .festival-card:hover::before {
@@ -413,7 +436,7 @@ p {
     font-family: var(--font-display);
     font-size: clamp(60px, 8vw, 110px);
     font-weight: 900;
-    color: rgba(255, 255, 255, 0.03);
+    color: rgba(0, 0, 0, 0.05);
     position: absolute;
     top: 16px;
     right: 24px;
@@ -438,7 +461,7 @@ p {
 }
 
 .festival-card p:last-of-type {
-    color: rgba(240, 236, 228, 0.65);
+    color: rgba(17, 17, 17, 0.6);
     font-size: 0.95rem;
     margin-bottom: 36px;
     max-width: 48ch;
@@ -449,7 +472,7 @@ p {
     font-size: 0.75rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: rgba(240, 236, 228, 0.5);
+    color: rgba(17, 17, 17, 0.45);
     border-bottom: 1px solid var(--c-border);
     padding-bottom: 3px;
     transition: border-color 0.2s ease, color 0.2s ease;
@@ -470,36 +493,78 @@ p {
 
 .submission > .container > p:not(.note) {
     margin-bottom: 48px;
-    color: rgba(240, 236, 228, 0.75);
+    color: rgba(17, 17, 17, 0.65);
     font-size: 1.05rem;
 }
 
 .submission__grid {
     display: flex;
     flex-direction: column;
-    gap: 2px;
     margin-bottom: 48px;
+    border-top: 1px solid var(--c-border);
 }
 
 .submission__item {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 30px 36px;
-    background: var(--c-bg-card);
-    gap: 24px;
-    transition: background 0.2s ease;
+    gap: 28px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--c-border);
+    color: var(--c-text);
+    text-decoration: none;
+    transition: padding-left 0.25s ease;
+    position: relative;
+}
+
+.submission__item::before {
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--c-accent);
+    transform: scaleY(0);
+    transition: transform 0.25s ease;
 }
 
 .submission__item:hover {
-    background: #181818;
+    padding-left: 12px;
+}
+
+.submission__item:hover::before {
+    transform: scaleY(1);
+}
+
+.submission__num {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    color: var(--c-muted);
+    flex-shrink: 0;
+    width: 28px;
 }
 
 .submission__name {
     font-family: var(--font-display);
-    font-size: 1rem;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: -0.01em;
+    flex: 1;
+}
+
+.submission__arrow {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--c-muted);
+    flex-shrink: 0;
+    transition: color 0.2s ease;
+}
+
+.submission__item:hover .submission__arrow {
+    color: var(--c-accent);
 }
 
 .note {
@@ -519,7 +584,7 @@ p {
 
 .cooperation .lead {
     margin-bottom: 36px;
-    color: rgba(240, 236, 228, 0.85);
+    color: rgba(17, 17, 17, 0.8);
 }
 
 .coop-intro {
@@ -555,7 +620,6 @@ p {
 }
 
 .coop-list li:hover {
-    color: var(--c-text);
     padding-left: 6px;
 }
 
@@ -578,7 +642,7 @@ p {
     font-size: 1.05rem;
     line-height: 1.9;
     max-width: none;
-    color: rgba(240, 236, 228, 0.7);
+    color: rgba(17, 17, 17, 0.6);
 }
 
 .contact__mail a {
@@ -626,7 +690,7 @@ p {
 .footer__col p {
     font-size: 0.88rem;
     line-height: 1.85;
-    color: rgba(240, 236, 228, 0.5);
+    color: rgba(17, 17, 17, 0.5);
     max-width: none;
 }
 
@@ -641,7 +705,7 @@ p {
 
 .footer__col a {
     font-size: 0.88rem;
-    color: rgba(240, 236, 228, 0.5);
+    color: rgba(17, 17, 17, 0.5);
     border-bottom: 1px solid transparent;
     padding-bottom: 2px;
     transition: color 0.2s ease, border-color 0.2s ease;
@@ -704,16 +768,17 @@ p {
     .nav__links {
         display: none;
         position: absolute;
-        top: calc(100% + 22px);
+        top: calc(100% + 18px);
         left: calc(-1 * var(--pad-x));
         right: calc(-1 * var(--pad-x));
-        background: rgba(10, 10, 10, 0.98);
+        background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
         flex-direction: column;
         padding: 28px var(--pad-x);
         gap: 24px;
         border-top: 1px solid var(--c-border);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     }
 
     .nav__links.open {
@@ -751,9 +816,11 @@ p {
 
 @media (max-width: 600px) {
     .submission__item {
-        flex-direction: column;
-        align-items: flex-start;
         gap: 16px;
+    }
+
+    .submission__arrow {
+        display: none;
     }
 
     .section-header {
